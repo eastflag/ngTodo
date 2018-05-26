@@ -1,6 +1,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @import "variable";
+@import "mixin";
 @import "material"; // 먼저 .css 찾고 그담에 .scss를 찾고 그담에 _xxx.scss를 찾는다.
 
 * {
