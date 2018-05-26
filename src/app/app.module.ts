@@ -35,7 +35,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-/*    FlexLayoutModule,*/
+    FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
