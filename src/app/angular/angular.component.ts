@@ -85,4 +85,15 @@ export class AngularComponent implements OnInit {
         todo.isEdited = false;
       });
   }
+
+  remove(todo_id: number, index: number) {
+    if (confirm('삭제하시겠습니까?')) {
+      this.userService.removeTodo(todo_id)
+        .subscribe(body => {
+          console.log(body);
+          // 배열에 반영
+          this.todoList.splice(index, 1);
+        });
+    }
+  }
 }
