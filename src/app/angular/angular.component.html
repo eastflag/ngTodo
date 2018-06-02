@@ -38,18 +38,18 @@
             <button mat-raised-button color="warn">삭제</button>
           </td>
         </tr>
-        <tr [@flyInOut]="'in'" *ngIf="todo.isEdited">
+        <tr *ngIf="todo.isEdited">
           <td>
-            <input type="checkbox" [value]="todo.isFinished">
+            <input type="checkbox" [(ngModel)]="todo.isFinished">
           </td>
           <td>
-            <input type="text" [value]="todo.todo">
+            <input type="text" [(ngModel)]="todo.todo">
           </td>
           <td>{{todo.created}}</td>
           <td>{{todo.updated}}</td>
           <td>
-            <button mat-raised-button color="accent" (click)="update(todo)">저장</button>
-            <button mat-raised-button color="warn">취소</button>
+            <button mat-raised-button color="accent">저장</button>
+            <button mat-raised-button color="warn" (click)="restore(todo)">취소</button>
           </td>
         </tr>
       </ng-template>

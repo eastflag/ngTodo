@@ -17,8 +17,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         style({opacity: 0, transform: 'translate(-100%, 0)'}),
         animate(300)
       ]),
-      transition('* => void', [
-        animate(300, style({transform: 'translate(0, -100%)', opacity: '0'}))
+      transition('in => void', [
+        animate(300, style({transform: 'translate(100%, 0)', opacity: '0'}))
       ])
     ])
   ]
@@ -57,6 +57,10 @@ export class AngularComponent implements OnInit {
   }
 
   update(todo: TodoVO) {
-    todo.isFinished = true;
+    todo.isEdited = true;
+  }
+
+  restore(todo: TodoVO) {
+    todo.isEdited = false;
   }
 }
