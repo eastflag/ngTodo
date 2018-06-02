@@ -21,6 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { HighlightDirective } from './highlight.directive';
+import { MydatePipe } from './mydate.pipe';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -40,6 +41,7 @@ const routes: Routes = [
     IndexComponent,
     HomeComponent,
     HighlightDirective,
+    MydatePipe,
     JqueryComponent,
     AngularComponent
   ],
