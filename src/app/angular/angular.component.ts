@@ -8,7 +8,7 @@ import {TodoVO} from "../domain/todo.vo";
   styleUrls: ['./angular.component.css']
 })
 export class AngularComponent implements OnInit {
-  todoList: TodoVO[];
+  todoList: TodoVO[] = [];
 
   constructor(private userService: UserService) { }
 
