@@ -27,6 +27,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 export class AngularComponent implements OnInit {
   todoList: TodoVO[] = [];
   newTodo: string;
+  // 취소시 원데이터를 복원하기 위한 HashMap 객체 정의
+  tempMap = new Map<number, TodoVO>();
 
   constructor(private userService: UserService) { }
 
@@ -58,9 +60,20 @@ export class AngularComponent implements OnInit {
 
   update(todo: TodoVO) {
     todo.isEdited = true;
+
+    // deep copy
+    this.tempMap.set(todo.todo_id, {...todo});
   }
 
   restore(todo: TodoVO) {
     todo.isEdited = false;
+
+    const temp = this.tempMap.get(todo.todo_id);
+
+    // 값을 복사
+    todo.todo = temp.todo;
+    todo.isFinished = temp.isFinished;
+    // 한번에? shallow copy: 기존 메모리주소값은 변경되면 안된다.
+    // todo = {...todo, ...temp};
   }
 }
