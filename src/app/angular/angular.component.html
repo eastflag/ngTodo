@@ -3,7 +3,7 @@
     <mat-card-title>My Todo</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form #myForm="ngForm" (submit)="addTodo(myForm)">
+    <form #myForm="ngForm" (submit)="addTodo()">
     <div fxFlex="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
       <mat-form-field fxFlex="4 1 auto">
         <input matInput placeholder="할일을 입력하세요" [(ngModel)]="newTodo" required
