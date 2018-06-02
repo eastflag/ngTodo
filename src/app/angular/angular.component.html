@@ -43,8 +43,8 @@
           <div class="td">
             <input type="text" [(ngModel)]="todo.todo">
           </div>
-          <div class="td">{{todo.created}}</div>
-          <div class="td">{{todo.updated}}</div>
+          <div class="td">{{todo.created | mydate}}</div>
+          <div class="td">{{todo.updated | date:'yyyy-MM-dd aa HH:mm'}}</div>
           <div class="td">
             <button mat-raised-button color="accent" (click)="modify(todo)">저장</button>
             <button mat-raised-button color="warn" (click)="restore(todo)">취소</button>
