@@ -55,4 +55,8 @@ export class AngularComponent implements OnInit {
         this.newTodo = null;
       });
   }
+
+  update(todo: TodoVO) {
+    todo.isFinished = true;
+  }
 }
