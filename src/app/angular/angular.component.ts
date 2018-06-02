@@ -66,14 +66,14 @@ export class AngularComponent implements OnInit {
   }
 
   restore(todo: TodoVO) {
-    todo.isEdited = false;
-
     const temp = this.tempMap.get(todo.todo_id);
 
     // 값을 복사
-    todo.todo = temp.todo;
-    todo.isFinished = temp.isFinished;
-    // 한번에? shallow copy: 기존 메모리주소값은 변경되면 안된다.
-    // todo = {...todo, ...temp};
+    // todo.todo = temp.todo;
+    // todo.isFinished = temp.isFinished;
+    // 한번에
+    Object.assign(todo, temp);
+
+    todo.isEdited = false;
   }
 }
