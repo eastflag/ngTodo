@@ -36,7 +36,7 @@ body {
   font-size: $font-size-base;
   color: rgba(mat-color($foreground, base), 0.87);
   line-height: 1.5;
-  font-family: $mat-font-family;
+  //font-family: $mat-font-family;
   &.pace-done {
     background: #6b6b6b;
   }
