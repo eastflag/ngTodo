@@ -76,4 +76,13 @@ export class AngularComponent implements OnInit {
 
     todo.isEdited = false;
   }
+
+  modify(todo: TodoVO) {
+    this.userService.modifyTodo(todo)
+      .subscribe(body => {
+        // 수정된 데이터를 반영하고, 템플릿을을 일반모드로 변환
+        todo.updated = body.updated;
+        todo.isEdited = false;
+      });
+  }
 }

@@ -48,7 +48,7 @@
           <td>{{todo.created}}</td>
           <td>{{todo.updated}}</td>
           <td>
-            <button mat-raised-button color="accent">저장</button>
+            <button mat-raised-button color="accent" (click)="modify(todo)">저장</button>
             <button mat-raised-button color="warn" (click)="restore(todo)">취소</button>
           </td>
         </tr>
