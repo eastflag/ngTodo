@@ -93,6 +93,7 @@ export class AngularComponent implements OnInit {
           console.log(body);
           // 배열에 반영
           this.todoList.splice(index, 1);
+          // this.getTodoList();
         });
     }
   }
