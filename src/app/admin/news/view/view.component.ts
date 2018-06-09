@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AdminService} from "../../admin.service";
 import {NewsVO} from "../../../domain/news.vo";
-import {MatDialog, MatDialogRef} from "@angular/material";
+import {MatDialog, MatDialogRef, MatSnackBar} from "@angular/material";
 import {ViewDialogComponent} from "../view-dialog/view-dialog.component";
 
 @Component({
@@ -14,7 +14,7 @@ export class ViewComponent implements OnInit {
   news: NewsVO;
 
   constructor(private router: Router, private route: ActivatedRoute, private adminService: AdminService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     console.log('view init:', this.router.url);
@@ -48,6 +48,8 @@ export class ViewComponent implements OnInit {
             console.log(body);
             // 뉴스 목록보기로 돌아간다.
             this.router.navigate(['admin', 'news']);
+            // 토스트 메시지 보이기
+            this.snackBar.open('삭제되었습니다.', null, {duration: 3000});
           });
       }
     });
