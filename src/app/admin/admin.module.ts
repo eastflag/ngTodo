@@ -6,7 +6,7 @@ import { IndexComponent } from './index/index.component';
 import {RouterModule, Routes} from "@angular/router";
 import {
   MatButtonModule,
-  MatCardModule, MatExpansionModule,
+  MatCardModule, MatDialogModule, MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -21,6 +21,7 @@ import {FormsModule} from "@angular/forms";
 import { ViewComponent } from './news/view/view.component';
 import { WriteComponent } from './news/write/write.component';
 import {CKEditorModule} from "ng2-ckeditor";
+import { ViewDialogComponent } from './news/view-dialog/view-dialog.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -49,7 +50,9 @@ const routes: Routes = [
     MatExpansionModule,
     MatPaginatorModule,
     CKEditorModule,
+    MatDialogModule
   ],
-  declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent, WriteComponent]
+  declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent, WriteComponent, ViewDialogComponent],
+  entryComponents: [ViewDialogComponent]
 })
 export class AdminModule { }
