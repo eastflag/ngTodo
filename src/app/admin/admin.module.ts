@@ -25,8 +25,8 @@ const routes: Routes = [
   {path: '', component: IndexComponent, children: [
       {path: '', component: HomeComponent},
       {path: 'news', component: NewsComponent, children: [
-          {path: 'view/:news_id', component: ViewComponent},
-          {path: 'write', component: WriteComponent}
+          {path: 'write', component: WriteComponent},
+          {path: ':news_id', component: ViewComponent},
         ]}
     ]}
 ];
