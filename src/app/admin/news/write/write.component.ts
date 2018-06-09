@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsVO} from "../../../domain/news.vo";
 import {AdminService} from "../../admin.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-write',
@@ -10,14 +11,17 @@ import {AdminService} from "../../admin.service";
 export class WriteComponent implements OnInit {
   news = new NewsVO();
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
   }
 
   addNews() {
     this.adminService.addNews(this.news)
-      .subscribe(body => console.log(body));
+      .subscribe(body => {
+        console.log(body);
+        this.router.navigate(['admin', 'news']);
+      });
   }
 
   fileChange(event: any) {

@@ -33,4 +33,8 @@ export class AdminService {
   imageUpload(formData: FormData) {
     return this.http.post(this.Server + '/api/imageUpload', formData);
   }
+
+  removeNews(news_id: number) {
+    return this.http.delete(this.Server + `/api/news?news_id=${news_id}`);
+  }
 }

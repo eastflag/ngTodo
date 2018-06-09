@@ -38,6 +38,18 @@ export class ViewComponent implements OnInit {
   }
 
   popupDelete() {
-    this.dialog.open(ViewDialogComponent, {data: {content: `${this.news.title} 을 삭제하시겠습니까?` }});
+    this.dialog.open(ViewDialogComponent, {data: {content: `${this.news.title} 을 삭제하시겠습니까?` }})
+      .afterClosed().subscribe(data => {
+      console.log(data);
+      if (data) {
+        // 데이터 삭제
+        this.adminService.removeNews(this.news.news_id)
+          .subscribe(body => {
+            console.log(body);
+            // 뉴스 목록보기로 돌아간다.
+            this.router.navigate(['admin', 'news']);
+          });
+      }
+    });
   }
 }
