@@ -50,6 +50,8 @@ export class ViewComponent implements OnInit {
             this.router.navigate(['admin', 'news']);
             // 토스트 메시지 보이기
             this.snackBar.open('삭제되었습니다.', null, {duration: 3000});
+            // 부모에게 갱신을 알리기
+            this.adminService.refresh.next(true);
           });
       }
     });

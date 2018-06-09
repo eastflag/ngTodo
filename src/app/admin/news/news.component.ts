@@ -16,6 +16,12 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.findNews();
+
+    // 뉴스 삭제, 추가 등의 이벤트 수신
+    this.adminService.refresh$
+      .subscribe(data => {
+        this.findNews();
+      });
   }
 
   findNews() {

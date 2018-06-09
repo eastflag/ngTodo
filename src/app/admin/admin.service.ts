@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ResultVO} from "../domain/result.vo";
 import {Observable} from "rxjs/internal/Observable";
 import {NewsVO} from "../domain/news.vo";
+import {Subject} from "rxjs/internal/Subject";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,9 @@ import {NewsVO} from "../domain/news.vo";
 export class AdminService {
   private Server: string;
   private header: HttpHeaders;
+
+  refresh = new Subject<boolean>();
+  refresh$ = this.refresh.asObservable();
 
   constructor(private http: HttpClient) {
     this.Server = environment.HOST;

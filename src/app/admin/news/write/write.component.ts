@@ -21,6 +21,8 @@ export class WriteComponent implements OnInit {
       .subscribe(body => {
         console.log(body);
         this.router.navigate(['admin', 'news']);
+        // 부모에게 데이터 갱신을 알린다.
+        this.adminService.refresh.next(true);
       });
   }
 
