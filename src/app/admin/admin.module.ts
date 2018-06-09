@@ -10,7 +10,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatMenuModule,
+  MatMenuModule, MatPaginatorModule,
   MatToolbarModule
 } from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
@@ -41,6 +41,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
+    MatPaginatorModule,
   ],
   declarations: [HomeComponent, NewsComponent, IndexComponent]
 })
