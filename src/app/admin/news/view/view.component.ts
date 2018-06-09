@@ -4,6 +4,7 @@ import {AdminService} from "../../admin.service";
 import {NewsVO} from "../../../domain/news.vo";
 import {MatDialog, MatDialogRef, MatSnackBar} from "@angular/material";
 import {ViewDialogComponent} from "../view-dialog/view-dialog.component";
+import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-view',
@@ -12,9 +13,11 @@ import {ViewDialogComponent} from "../view-dialog/view-dialog.component";
 })
 export class ViewComponent implements OnInit {
   news: NewsVO;
+  html: SafeHtml;
 
   constructor(private router: Router, private route: ActivatedRoute, private adminService: AdminService,
-              private dialog: MatDialog, private snackBar: MatSnackBar) { }
+              private dialog: MatDialog, private snackBar: MatSnackBar,
+              private sanitize: DomSanitizer) { }
 
   ngOnInit() {
     console.log('view init:', this.router.url);
@@ -34,6 +37,7 @@ export class ViewComponent implements OnInit {
       .subscribe(body => {
         console.log(body);
         this.news = body;
+        this.html = this.sanitize.bypassSecurityTrustHtml(this.news.content);
       });
   }
 
